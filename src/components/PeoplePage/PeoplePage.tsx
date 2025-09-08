@@ -21,12 +21,11 @@ export const PeoplePage = () => {
         }));
       })
       .then(setPeople)
-      .catch(error => {
-        setError(error);
+      .catch(err => {
+        setError(err);
       })
       .finally(() => {
         setPeopleIsLoading(false);
-        console.log(people);
       });
   }, []);
 
