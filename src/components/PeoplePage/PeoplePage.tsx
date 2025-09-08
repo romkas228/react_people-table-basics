@@ -13,12 +13,12 @@ export const PeoplePage = () => {
     setPeopleIsLoading(true);
 
     getPeople()
-      .then((response) => {
+      .then(response => {
         return response.map(person => ({
           ...person,
           mother: response.find(mother => mother.name === person.motherName),
           father: response.find(father => father.name === person.fatherName),
-        }))
+        }));
       })
       .then(setPeople)
       .catch(error => {
@@ -65,9 +65,7 @@ export const PeoplePage = () => {
 
               <tbody>
                 {people.map(person => {
-                  return (
-                    <PersonLink person={person} key={person.slug}/>
-                  );
+                  return <PersonLink person={person} key={person.slug} />;
                 })}
               </tbody>
             </table>

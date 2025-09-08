@@ -14,7 +14,9 @@ export const NavBar = () => {
           <NavLink
             to={'/'}
             className={({ isActive }) => {
-              return cn('navbar-item', { 'has-background-grey-lighter': isActive });
+              return cn('navbar-item', {
+                'has-background-grey-lighter': isActive,
+              });
             }}
           >
             Home
@@ -23,7 +25,9 @@ export const NavBar = () => {
           <NavLink
             to={'/people'}
             className={({ isActive }) => {
-              return cn('navbar-item', { 'has-background-grey-lighter': isActive });
+              return cn('navbar-item', {
+                'has-background-grey-lighter': isActive,
+              });
             }}
           >
             People
