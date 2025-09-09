@@ -11,6 +11,7 @@ export const PeoplePage = () => {
 
   useEffect(() => {
     setPeopleIsLoading(true);
+    setError('');
 
     getPeople()
       .then(response => {
@@ -22,7 +23,7 @@ export const PeoplePage = () => {
       })
       .then(setPeople)
       .catch(err => {
-        setError(err);
+        setError(err?.message ?? String(err));
       })
       .finally(() => {
         setPeopleIsLoading(false);
