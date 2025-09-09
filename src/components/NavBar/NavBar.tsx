@@ -13,6 +13,7 @@ export const NavBar = () => {
         <div className="navbar-brand">
           <NavLink
             to={'/'}
+            end
             className={({ isActive }) => {
               return cn('navbar-item', {
                 'has-background-grey-lighter': isActive,

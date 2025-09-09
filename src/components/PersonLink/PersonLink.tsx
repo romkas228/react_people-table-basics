@@ -7,17 +7,17 @@ type Props = {
 };
 
 export const PersonLink: React.FC<Props> = ({ person }) => {
-  const { personLink } = useParams();
+  const { slug } = useParams();
 
   return (
     <tr
       data-cy="person"
-      className={cn({ 'has-background-warning': personLink === person.slug })}
+      className={cn({ 'has-background-warning': slug === person.slug })}
     >
       <td>
         <Link
           className={cn({ 'has-text-danger': person.sex === 'f' })}
-          to={person.slug}
+          to={`/people/${person.slug}`}
         >
           {person.name}
         </Link>
@@ -28,7 +28,7 @@ export const PersonLink: React.FC<Props> = ({ person }) => {
       <td>{person.died}</td>
       <td>
         {person.mother ? (
-          <Link className={'has-text-danger'} to={person.mother.slug}>
+          <Link className={'has-text-danger'} to={`/people/${person.mother.slug}`}>
             {person.mother.name}
           </Link>
         ) : (
@@ -37,7 +37,7 @@ export const PersonLink: React.FC<Props> = ({ person }) => {
       </td>
       <td>
         {person.father ? (
-          <Link to={person.father.slug}>{person.father.name}</Link>
+          <Link to={`/people/${person.father.slug}`}>{person.father.name}</Link>
         ) : (
           person.fatherName || '-'
         )}
